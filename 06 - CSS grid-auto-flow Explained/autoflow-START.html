@@ -12,12 +12,20 @@
   <div class="container">
     <div class="item">1</div>
     <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">3</div>
+    <div class="item">3</div>
   </div>
 
   <style>
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-columns: 100px 50px;
+      grid-auto-flow: row; /* this is the default value */
+      grid-auto-flow: inherit;
+      grid-auto-flow: column;
+      grid-auto-columns: 250px 100px
     }
   </style>
 </body>

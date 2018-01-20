@@ -24,6 +24,7 @@
     h5,
     h6 {
       margin: 0 0 5px 0;
+      color: black;
     }
     /*
       WAT IS THIS?!
@@ -51,12 +52,16 @@
       padding: 10px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
+     .left-column-layout-example,
+    .right-column-layout-example {
+      color: white;
+    }
   </style>
 </head>
 
 <body>
   <!-- The everything on the right except the one thing -->
-  <div class="left-column-example">
+  <div class="left-column-layout-example">
     <div class="tracks">
       <div class="track">
         <h2>You Know Me (Ft. Da Brat & Jermaine Dupri)</h2>
@@ -88,7 +93,7 @@
     <div class="empty-column-example"> foooobar </div>
   </div>
   <br/> <hr/> <br/>
-  <div class="right-column-example">
+  <div class="right-column-layout-example">
     <div class="tracks">
       <div class="track">
         <h2>You Know Me (Ft. Da Brat & Jermaine Dupri)</h2>
@@ -175,8 +180,10 @@
   <style>
     .track {
       display: grid;
-      grid-template-columns: minmax(3px, 1fr);
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      justify-content: start;
+      /* grid-template-columns: minmax(290px, 1fr) minmax(100px, 290px); */
+      /* grid-template-columns: repeat(auto-fit, minmax(290px, 1fr) fit-content(100px)); */
+      grid-template-columns: minmax(200px, 1fr) repeat(auto-fit, minmax(200px, max-content));
       grid-auto-flow: row}
       h2 {
         text-overflow: ellipsis;
@@ -184,30 +191,43 @@
         overflow: hidden}
       .action {
         display: grid;
+        justify-content: end;
+        align-self: center;
+        grid-column: -1;
+        grid-gap: 4px;
         grid-auto-flow: column}
-        button { padding: 0 }
 
-    @media (min-width: 610px) {
+    /* @media (min-width: 610px) {
       .track {
         grid-auto-flow: column}
         .action {}
           button { padding: 0 8px; }
-    }
+    } */
 
-    .empty-column-example {}
-
-    .left-column-example,
-    .right-column-example {
-      align-items: center;
-    }
-    .left-column-example {
+    .empty-column-example {
+      background-color: rebeccapurple;
       display: grid;
-      grid-template-columns: 2fr 8fr;
+      justify-content: center;
+      align-content: center;
     }
-
-    .right-column-example {
+    .left-column-layout-example,
+    .right-column-layout-example {
       display: grid;
-      grid-template-columns: 8fr 2fr ;
+      grid-gap: 8px;
+      align-items: stretch;
+    }
+    /** L'ets keep this classy,
+      * Only full bleed element can take advantage of mediaqueries
+      */
+    .left-column-layout-example { grid-template-columns: 1fr 3fr; }
+    .right-column-layout-example {
+      /* grid-auto-rows: minmax(80px, 1fr); */
+    }
+    @media (min-width: 610px) {
+      .right-column-layout-example {
+      grid-template-columns: minmax(290px, 4fr) minmax(290px, 1fr);
+      }
+
     }
 
   </style>

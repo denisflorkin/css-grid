@@ -10,48 +10,47 @@
 
 <body>
   <div class="container">
-    <div class="item item1">
+    <header class="item">
+      <p>I'm header</p>
+    </header>
+    <div class="item">
       <p>I'm Sidebar #1</p>
     </div>
-    <div class="item item2">
+    <main class="item">
       <p>
         Lorem ipsum dolor sit amet consectetur
         adipisicing elit. Inventore, sed.
       </p>
       <p>Lorem ipsum d</p>
-    </div>
-    <div class="item item3">
-      <p>I'm Sidebar #2</p>
-    </div>
-    <div class="item footer">
+    </main>
+    <footer class="item footer">
       <p>I'm the footer</p>
-    </div>
+    </footer>
   </div>
 
   <style>
     .container {
       display: grid;
       grid-gap: 20px;
+      height: 100%;
       grid-template-columns: 1fr 6fr 1fr;
       grid-template-rows: 1fr minmax(1fr, auto-fill) 1fr;
       grid-template-areas:
         "header         header    header"
-        "sidebar-left   content   sidebar-right"
-        "sidebar-left   content   sidebar-right"
+        "sidebar-left   content   content"
         "footer         footer    footer"
     }
 
-    .footer {
-      grid-area: footer;
+    header {
+      grid-area: header;
     }
-    .item1 {
-      grid-area: sidebar-left;
-    }
-    .item2 {
+
+    main {
       grid-area: content;
     }
-    .item3 {
-      grid-area: sidebar-right;
+
+    footer {
+      grid-area: footer;
     }
 
 

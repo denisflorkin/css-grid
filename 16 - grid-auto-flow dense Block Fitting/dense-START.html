@@ -86,7 +86,27 @@
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+      grid-auto-flow: dense;
+
     }
+
+    .item:nth-child(6n) {
+      background: crimson;
+      grid-column: span 6;
+    }
+
+    .item:nth-child(8n) {
+      grid-column: span 4;
+      grid-row: span 2;
+      background: rebeccapurple
+
+    }
+    .item.item9 {
+      background: limegreen;
+      grid-row-end: -1;
+    }
+
   </style>
 </body>
 
