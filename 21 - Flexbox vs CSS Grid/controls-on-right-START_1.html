@@ -179,17 +179,19 @@
   </div>
   <style>
     .track {
-      display: grid;
+      display: flex;
+      flex-flow: row wrap;
       justify-content: start;
       /* grid-template-columns: minmax(290px, 1fr) minmax(100px, 290px); */
       /* grid-template-columns: repeat(auto-fit, minmax(290px, 1fr) fit-content(100px)); */
-      grid-template-columns: minmax(200px, 1fr) repeat(auto-fit, minmax(200px, max-content));
+      grid-template-columns: minmax(240px, 1fr) repeat(auto-fit, minmax(240px, max-content));
       grid-auto-flow: row}
       h2 {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden}
       .action {
+        margin-left: auto;
         display: grid;
         justify-content: end;
         align-self: center;
@@ -219,15 +221,17 @@
     /** L'ets keep this classy,
       * Only full bleed element can take advantage of mediaqueries
       */
-    .left-column-layout-example { grid-template-columns: 1fr 3fr; }
+    /* .left-column-layout-example { grid-template-columns: 1fr 3fr; } */
     .right-column-layout-example {
       /* grid-auto-rows: minmax(80px, 1fr); */
     }
     @media (min-width: 610px) {
-      .right-column-layout-example {
-      grid-template-columns: minmax(290px, 4fr) minmax(290px, 1fr);
+      .left-column-layout-example {
+        grid-template-columns: minmax(240px, 1fr) minmax(240px, 4fr);
       }
-
+      .right-column-layout-example {
+        grid-template-columns: minmax(240px, 4fr) minmax(240px, 1fr);
+      }
     }
 
   </style>
